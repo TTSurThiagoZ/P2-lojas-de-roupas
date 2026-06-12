@@ -7,16 +7,20 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClienteDTO {
+public class ProdutoDTO {
 
     private Integer id;
 
     private String nome;
 
-    private Integer cpf;
+    private String tamanho; /* tamanhos disponiveis: P, M e G */
 
-    private String endereco;
+    private String cor;
 
-    private String email;
+    private Float preco;
+
+    private Integer quantidade;
+
+
 
 }
