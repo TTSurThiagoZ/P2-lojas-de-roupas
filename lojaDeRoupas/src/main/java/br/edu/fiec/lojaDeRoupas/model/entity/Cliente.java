@@ -1,5 +1,6 @@
 package br.edu.fiec.lojaDeRoupas.model.entity;
 
+import br.edu.fiec.lojaDeRoupas.model.dto.ClienteDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,12 +21,21 @@ public class Cliente {
     private String nome;
 
     @Column(nullable = false)
-    private String cpf;
+    private Integer cpf;
 
     @Column(nullable = false)
     private String endereco;
 
     @Column(nullable = false)
     private String email;
+
+
+    // Construtor a partir do DTO
+    public Cliente(ClienteDTO clienteDTO) {
+        setNome(clienteDTO.getNome());
+        setCpf(clienteDTO.getCpf());
+        setEmail(clienteDTO.getEmail());
+        setEndereco(clienteDTO.getEndereco());
+    }
 
 }
