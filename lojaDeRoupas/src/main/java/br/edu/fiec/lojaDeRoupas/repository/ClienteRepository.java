@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
-    List<Cliente> findAllByNome(String nome);
+    List<Cliente> findAllByCpf(String cpf);
 
     List<Cliente> findAllByEmail(String email);
 

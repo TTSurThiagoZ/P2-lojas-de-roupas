@@ -1,5 +1,6 @@
 package br.edu.fiec.lojaDeRoupas.model.entity;
 
+import br.edu.fiec.lojaDeRoupas.model.dto.ProdutoDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,6 +17,9 @@ public class Produto {
     @GeneratedValue
     private Integer id;
 
+    @Column(nullable = false) //vai definir se é "camisa", "calça" e etc..
+    private String categoria;
+
     @Column(nullable = false)
     private String nome;
 
@@ -29,11 +33,14 @@ public class Produto {
     private Float preco;
 
     @Column(nullable = false)
-    private Integer quantidade;
+    private Integer quantidadeEstoque;
 
-
-
-
-
+    public Produto(String categoria, ProdutoDTO produtoDTO) {
+        setCategoria(categoria);
+        setNome(produtoDTO.getNome());
+        setTamanho(produtoDTO.getTamanho());
+        setCor(produtoDTO.getCor());
+        setPreco(produtoDTO.getPreco());
+    }
 
 }
